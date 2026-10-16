@@ -1,0 +1,104 @@
+!credentials wazuh
+linux:
+root
+C1sc0123
+systemctl stop firewalld
+ip addr
+https://208.8.8.155
+
+
+GUI credentials:
+admin
+C1sc0123..
+
+<directories realtime="yes" report_changes="yes" check_all="yes">C:\Users\Administrator\Desktop\sonny</directories>
+
+*****************************************************************************************
+
+
+ir-elastic credentials:
+root
+C1sc0123
+systemctl start elasticsearch.service
+ip addr
+
+GUI:
+http://208.8.8.155:5601
+208.8.8.156 (FW)
+admin
+C1sc0123
+
+
+F1K CONFIGS:
+en
+conf t
+int g1
+no shut
+ip addr dhcp
+end
+
+sh ip int brief
+
+
+https://codeshare.io/a3bejv
+
+config t
+NO ip access-list standard NOPORN
+ip access-list standard NOPORN
+DENY 66.254.0.0 0.0.255.255  log
+deny 161.49.0.0 0.0.255.255  log
+DENY 104.21.0.0 0.0.255.255  log
+DENY 68.235.0.0 0.0.255.255  log
+DENY 104.17.0.0 0.0.255.255  log
+DENY 88.208.0.0 0.0.255.255  log
+DENY 208.77.0.0 0.0.255.255  log
+DENY 172.67.0.0 0.0.255.255  log
+DENY 172.66.0.0 0.0.255.255  log
+DENY 162.159.0.0 0.0.255.255 log
+Permit Any
+Int Gi 1
+ ip access-group NOPORN in
+end
+
+
+
+!zabbix credentials
+root
+zabbix
+
+systemctl start zabbix-server
+ip addr
+
+gui: http://208.8.8.134
+Admin
+Zabbix
+
+dnf install net-snmp-utils -y
+
+
+
+*****************************
+Fortinate credential
+admin
+pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
